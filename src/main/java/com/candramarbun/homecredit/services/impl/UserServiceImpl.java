@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserServices {
         try {
             List<UserGroupModules> modules = user.getUserGroup().getModules();
             modules.forEach(module -> {
-                resp.add(new UserModuleResponse(module.getModule().getName(),module.getModuleOrder()));
+                resp.add(new UserModuleResponse(module.getModule().getModuleName(),module.getModuleOrder()));
             });
         } catch (Exception ex){
             throw new DataNotFoundException("This User doesn't have any modules gaess!");
