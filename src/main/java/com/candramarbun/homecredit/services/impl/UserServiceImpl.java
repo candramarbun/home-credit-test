@@ -1,17 +1,13 @@
 package com.candramarbun.homecredit.services.impl;
 
-import com.candramarbun.homecredit.dto.UserGroupRequest;
 import com.candramarbun.homecredit.dto.UserModuleRequest;
 import com.candramarbun.homecredit.dto.UserModuleResponse;
-import com.candramarbun.homecredit.dto.UserRequest;
 import com.candramarbun.homecredit.entities.Module;
 import com.candramarbun.homecredit.entities.User;
-import com.candramarbun.homecredit.entities.UserGroup;
 import com.candramarbun.homecredit.entities.UserGroupModules;
 import com.candramarbun.homecredit.exception.DataNotFoundException;
 import com.candramarbun.homecredit.repositories.ModuleRepository;
 import com.candramarbun.homecredit.repositories.UserGroupModuleRepository;
-import com.candramarbun.homecredit.repositories.UserGroupRepository;
 import com.candramarbun.homecredit.repositories.UserRepository;
 import com.candramarbun.homecredit.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
