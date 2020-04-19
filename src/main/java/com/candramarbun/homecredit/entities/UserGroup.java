@@ -10,7 +10,7 @@ public class UserGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String groupName;
-    @OneToMany
+    @OneToMany(mappedBy = "userGroup",cascade = CascadeType.ALL)
     private List<UserGroupModules> modules;
 
     public Long getId() {

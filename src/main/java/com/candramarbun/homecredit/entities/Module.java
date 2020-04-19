@@ -9,9 +9,8 @@ public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @ManyToMany
-    private List<UserGroup> userGroups;
+    private String title;
+    private String moduleName;
 
     public Long getId() {
         return id;
@@ -21,19 +20,20 @@ public class Module {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public List<UserGroup> getUserGroups() {
-        return userGroups;
+    public String getModuleName() {
+        return moduleName;
     }
 
-    public void setUserGroups(List<UserGroup> userGroups) {
-        this.userGroups = userGroups;
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
     }
+
 }

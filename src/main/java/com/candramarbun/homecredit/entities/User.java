@@ -13,6 +13,15 @@ public class User {
     @ManyToOne
     private UserGroup userGroup;
 
+    public User() {
+    }
+
+    public User(String fullname, String username, UserGroup userGroup) {
+        this.fullname = fullname;
+        this.username = username;
+        this.userGroup = userGroup;
+    }
+
     public Long getId() {
         return id;
     }
