@@ -10,12 +10,8 @@ public class UserGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String groupName;
-    @ManyToMany
-    @JoinTable(
-            name = "pv_user_group_module",
-            joinColumns = @JoinColumn(name = "user_group_id"),
-            inverseJoinColumns = @JoinColumn(name = "module_id"))
-    private List<Module> modules;
+    @OneToMany
+    private List<UserGroupModules> modules;
 
     public Long getId() {
         return id;
@@ -33,11 +29,11 @@ public class UserGroup {
         this.groupName = groupName;
     }
 
-    public List<Module> getModules() {
+    public List<UserGroupModules> getModules() {
         return modules;
     }
 
-    public void setModules(List<Module> modules) {
+    public void setModules(List<UserGroupModules> modules) {
         this.modules = modules;
     }
 }
