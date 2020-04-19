@@ -1,8 +1,8 @@
 <b>Step</b>
 1. Go to root project and run wih Maven 
-<small>Windows</small>
+<p><small>Windows</small></p>
 <span><pre> mvn spring-boot:run</pre></span>
-<small>Linux</small>
+<p><small>Linux</small></p>
 <span><pre> mvn spring-boot:run</pre></span>
 2. Open Swagger Documentation <pre>http://localhost:8080/swagger-ui.html</pre>
   
