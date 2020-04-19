@@ -23,15 +23,13 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserServices {
     private UserRepository userRepository;
-    private UserGroupRepository userGroupRepository;
     private ModuleRepository moduleRepository;
     private UserGroupModuleRepository userGroupModuleRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserGroupRepository userGroupRepository,
-                           ModuleRepository moduleRepository,UserGroupModuleRepository userGroupModuleRepository) {
+    public UserServiceImpl(UserRepository userRepository, ModuleRepository moduleRepository,
+                           UserGroupModuleRepository userGroupModuleRepository) {
         this.userRepository = userRepository;
-        this.userGroupRepository = userGroupRepository;
         this.moduleRepository = moduleRepository;
         this.userGroupModuleRepository = userGroupModuleRepository;
     }
@@ -65,34 +63,6 @@ public class UserServiceImpl implements UserServices {
             });
         } catch (Exception ex){
             throw new DataNotFoundException("Oops... Something wrong gaess!!");
-        }
-    }
-
-    @Override
-    public void storeUserGroup(UserGroupRequest userGroupRequest) {
-        try {
-            UserGroup userGroup = new UserGroup();
-            userGroup.setGroupName(userGroupRequest.getName());
-            userGroupRepository.save(userGroup);
-        } catch (Exception ex){
-            throw new DataNotFoundException("Oops.. something wrong gaess!"+ex.getMessage());
-        }
-    }
-
-    @Override
-    public void storeUser(UserRequest userRequest) {
-        if(this.userRepository.existsByUsername(userRequest.getUsername())){
-            throw new DataNotFoundException("This Username already taken bro sis!");
-        }
-        try {
-            UserGroup userGroup = this.userGroupRepository.findById(userRequest.getUserGroupId()).orElseThrow(() -> new DataNotFoundException("User Group not found!"));
-            User user = new User();
-            user.setUserGroup(userGroup);
-            user.setUsername(userRequest.getUsername());
-            user.setFullname(userRequest.getFullname());
-            this.userRepository.save(user);
-        } catch (Exception ex){
-            throw new DataNotFoundException("Something wromg gaess !!"+ ex.getMessage());
         }
     }
 }

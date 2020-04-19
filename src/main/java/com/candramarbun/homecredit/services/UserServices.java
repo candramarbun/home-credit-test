@@ -10,6 +10,4 @@ import java.util.List;
 public interface UserServices {
     List<UserModuleResponse> findUserModulById(Long userId);
     void storeUserModule(Long userId,List<UserModuleRequest> requests);
-    void storeUserGroup(UserGroupRequest userGroupRequest);
-    void storeUser(UserRequest userRequest);
 }
